@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+
+<meta charset="UTF-8">
+<title>Reflection</title>
+<style type="text/css">
+body {line-height:1.5;font-family:arial,"宋体";background:#ffffff;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,
+form,fieldset,legend,input,button,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+}
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+ol,ul{list-style:none;}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup {
+    font-style:normal;
+}
+input,button,textarea,select,optgroup,option {
+    font-family:inherit;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+    *font-size:100%;
+}
+fieldset,img,a img,:link img,:visited img{border:0;}
+a{text-decoration:none;}
+a:hover {text-decoration:underline;}
+:focus {outline:0;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th {text-align:left;}
+sup,sub {font-size:100%;vertical-align:baseline;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+.clear,.clearfix:after {clear:both;height:0;overflow:hidden;display:block;}
+.clearfix:after {visibility:hidden;content:".";}
+.clearfix{*zoom:1;}
+.common_wrap {width:960px;margin:0 auto;}
+body{
+	background:#000;
+}
+li {
+	float:left;
+	width:300px;
+	margin:10px;
+}
+img {
+	width:300px;
+	height:200px;
+	display: block;
+}
+
+</style>
+</head>
+<body>
+<ul>
+	<li>
+		<img class="origin" src="1.jpg"/>
+	</li>
+	<li>
+		<img class="origin" src="2.png" />
+	</li>
+	<li>
+		<img class="origin" src="3.jpg" />
+	</li>
+</ul>
+<script type="text/javascript" src="reflect.js"></script>
+<script type="text/javascript">
+
+	window.onload =  function(){
+
+		var imgList = getByClass(document,'origin');
+
+
+		var config = {
+			// 设置倒影图片的高度
+			refH : 80,
+			// 设置倒影图片的透明度
+			opacity: 0.8
+		};
+
+		GLOBAL.reflect.setReflect(imgList, config, reflectAfter);
+
+		function reflectAfter(refObj){
+
+			console.log(refObj);
+
+		}
+
+		function getByClass(obj,cls){
+			var elements = document.getElementsByTagName("*");
+			var result = [];
+			for(var i=0;i<elements.length;i++){
+				if(elements[i].className.indexOf(cls)!= -1){
+					result.push(elements[i]);
+				}
+			}
+			return result;
+		}
+
+	};
+
+</script>
+</body>
+</html>
