@@ -77,7 +77,7 @@ GLOBAL.reflect.setReflect = function(imgs, config, callback){
 
         var cssStr = 'display:block;position:absolute;top:' + (y + img.offsetHeight) + 'px;left:' + x + 'px;width:' + reflectionWidth + 'px;height:' + reflectionHeight + 'px;filter:' + 'progid:DXImageTransform.Microsoft.BasicImage(grayscale=0, xray=0, mirror=1, invert=0, opacity=1, rotation=2)progid:DXImageTransform.Microsoft.Alpha(opacity=100, style=1, finishOpacity=0, startx=0, starty=0, finishx=0, finishy='+(reflectionHeight)+')';
 
-        reflection.style.cssText = cssStr;
+        reflection.style.cssText += cssStr;
         reflection.src = img.src;
         reflection.className = "rotate";
         img.parentNode.appendChild(reflection);
